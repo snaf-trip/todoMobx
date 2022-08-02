@@ -1,8 +1,12 @@
 import React from "react";
+import { TasksPage } from "./pages/tasksPage/tasksPage.pages";
 
 function App(): JSX.Element {
   return (
-    <div>Bob</div>
+    <div>
+      <TasksPage />
+    </div>
+
   )
 }
 
