@@ -1,8 +1,13 @@
 import React from "react";
+import { TaskType } from "types/task.types";
 import "./taskCard.components.scss";
 
-export const TaskCard = (): JSX.Element => {
+interface Props {
+  task: TaskType,
+}
+
+export const TaskCard = (props: Props): JSX.Element => {
   return (
-    <div className="taskCard">Задача 1</div>
+    <div className="taskCard">{props.task.title}</div>
   )
 }
