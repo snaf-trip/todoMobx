@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 class ModalState {
-  open: boolean = true;
+  open: boolean = false;
   content: undefined | JSX.Element = undefined;
 
   constructor() {
