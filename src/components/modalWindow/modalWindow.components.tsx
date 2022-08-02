@@ -7,12 +7,14 @@ export const ModalWindow = observer((): JSX.Element => {
   return (
     <div
       className={modalState.open === true ? "modal" : "modal_hide"}
-      onClick={() => modalState.modalToggle()}
+      onClick={() => modalState.modalToggle(undefined)}
     >
       <div
         className="modal__content"
         onClick={e => e.stopPropagation()}
-      >bob</div>
+      >
+        {modalState.content}
+      </div>
     </div >
   )
 })

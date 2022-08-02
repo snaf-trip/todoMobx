@@ -1,14 +1,16 @@
 import { makeAutoObservable } from "mobx";
 
 class ModalState {
-  open = true;
+  open: boolean = true;
+  content: undefined | JSX.Element = undefined;
 
   constructor() {
     makeAutoObservable(this)
   }
 
-  modalToggle() {
+  modalToggle(content: undefined | JSX.Element) {
     this.open = this.open === false ? true : false;
+    this.content = this.content !== undefined ? undefined : content;
   }
 }
 
