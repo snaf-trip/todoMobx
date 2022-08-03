@@ -17,6 +17,7 @@ export const TaskCard = observer((props: Props): JSX.Element => {
         onChange={() => { tasksState.completeTask(props.task.id) }} />
       <h3>{props.task.title}</h3>
       <p>{props.task.description}</p>
+      <button onClick={() => { tasksState.deleteTask(props.task.id) }}>DELETE</button>
     </div>
   )
 })
