@@ -10,7 +10,7 @@ export const createTask = (
     let date = new Date();
     let id = date.getHours() + date.getMinutes() + date.getMilliseconds();
 
-    tasksState.addTask({ id: id, title: title, description: description });
+    tasksState.addTask({ id: id, title: title, description: description, completed: false });
     modalState.modalToggle(undefined);
   }
 }

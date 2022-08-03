@@ -1,0 +1,8 @@
+.taskCard {
+  display: flex;
+  align-items: center;
+}
+
+.taskCard_completed {
+  text-decoration: line-through;
+}
