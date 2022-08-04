@@ -3,6 +3,7 @@ import { TaskType } from "../types/task.types";
 
 class TasksState {
   tasks: TaskType[] = [];
+  filteredTasks: TaskType[] | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -27,6 +28,18 @@ class TasksState {
       }
     })
     localStorage.setItem("tasks", JSON.stringify(this.tasks));
+  }
+
+  filter(condition: string) {
+    switch (condition) {
+      case "done":
+        localStorage.setItem(
+          "filteredTasks",
+          JSON.stringify(this.tasks.filter(task => task.completed === true))
+        )
+      default:
+        break;
+    }
   }
 }
 
