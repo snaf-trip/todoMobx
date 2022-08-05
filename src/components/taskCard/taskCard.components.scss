@@ -1,8 +1,42 @@
 .taskCard {
-  display: flex;
-  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 20px;
+
+  .taskCard__top {
+    display: flex;
+
+    .taskCard__checkbox {}
+
+    .taskCard__title {
+      color: #303030;
+    }
+  }
+
+  .taskCard__bottom {
+    display: flex;
+    align-items: center;
+
+    .taskCard__date {
+      text-decoration: none;
+    }
+
+    .taskCard__del {
+      width: 24px;
+      height: 24px;
+      fill: #b8b8b8;
+
+      &:hover {
+        cursor: pointer;
+        fill: red;
+      }
+    }
+  }
 }
 
 .taskCard_completed {
-  text-decoration: line-through;
+  .taskCard__title {
+    text-decoration: line-through;
+  }
 }

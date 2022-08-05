@@ -10,7 +10,15 @@ export const createTask = (
     let date = new Date();
     let id = date.getHours() + date.getMinutes() + date.getMilliseconds();
 
-    tasksState.addTask({ id: id, title: title, description: description, completed: false });
+    tasksState.addTask(
+      {
+        id: id,
+        title: title,
+        description: description,
+        completed: false,
+        createDate: date.getDay() + "." + (date.getMonth() + 1) + "." + date.getFullYear(),
+      }
+    );
     modalState.modalToggle(undefined);
   }
 }
