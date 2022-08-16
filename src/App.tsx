@@ -2,6 +2,8 @@ import React from "react";
 import { TasksPage } from "./pages/tasksPage/tasksPage.pages";
 import { ModalWindow } from "./components/modalWindow/modalWindow.components";
 import tasksState from "./store/tasks.store";
+import "./App.scss"
+import { Menu } from "./components/menu/menu.components";
 
 function App(): JSX.Element {
 
@@ -15,10 +17,13 @@ function App(): JSX.Element {
   }
 
   return (
-    <div>
-      <TasksPage />
+    <>
+      <div className="app">
+        <Menu />
+        <TasksPage />
+      </div>
       <ModalWindow />
-    </div>
+    </>
 
   )
 }
