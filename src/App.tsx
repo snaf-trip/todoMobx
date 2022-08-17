@@ -4,6 +4,7 @@ import { ModalWindow } from "./components/modalWindow/modalWindow.components";
 import tasksState from "./store/tasks.store";
 import "./App.scss"
 import { Menu } from "./components/menu/menu.components";
+import { Routers } from "./components/routes/routes.components";
 
 function App(): JSX.Element {
 
@@ -20,11 +21,10 @@ function App(): JSX.Element {
     <>
       <div className="app">
         <Menu />
-        <TasksPage />
+        <Routers />
       </div>
       <ModalWindow />
     </>
-
   )
 }
 
