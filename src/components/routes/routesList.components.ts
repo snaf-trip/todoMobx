@@ -1,4 +1,4 @@
-import { TasksPage } from "../../pages/export.pages";
+import { TasksPage, AuthPage } from "../../pages/export.pages";
 
 export const routes = [
   {
@@ -22,7 +22,7 @@ export const routes = [
   {
     path: '/auth',
     exact: true,
-    component: TasksPage,
+    component: AuthPage,
     auth: false,
   },
 ];

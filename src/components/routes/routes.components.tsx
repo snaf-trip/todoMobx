@@ -4,12 +4,14 @@ import { TasksPage } from "../../pages/export.pages";
 import { routes } from "./routesList.components";
 
 export const Routers = () => {
-  const isAuth = true;
+  const isAuth = false;
   return (
     <BrowserRouter>
       <Routes>
         {routes.map(route => {
           if (route.auth && !isAuth) {
+            return false;
+          } else if (route.path === "/auth" && isAuth) {
             return false;
           }
 
