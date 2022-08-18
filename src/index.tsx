@@ -3,7 +3,7 @@ import App from "./App";
 import "./index.scss"
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import firebase from "firebase/app";
+import * as firebase from "firebase/app";
 
 // Initialize Firebase
 firebase.initializeApp({

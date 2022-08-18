@@ -1,4 +1,4 @@
-import { TasksPage, AuthPage } from "../../pages/export.pages";
+import { TasksPage, SignInPage, SignUpPage } from "../../pages/export.pages";
 
 export const routes = [
   {
@@ -20,9 +20,15 @@ export const routes = [
     auth: true,
   },
   {
-    path: '/auth',
+    path: '/signup',
     exact: true,
-    component: AuthPage,
+    component: SignUpPage,
+    auth: false,
+  },
+  {
+    path: '/signin',
+    exact: true,
+    component: SignInPage,
     auth: false,
   },
 ];
