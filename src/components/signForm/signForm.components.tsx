@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./signForm.components.scss";
-import { signUpApi } from "../../api/auth.api";
+import { signInApi, signUpApi } from "../../api/auth.api";
 import { IUserData } from "../../pages/signPages/authTypes.pages";
 
 interface Props {
@@ -48,7 +48,7 @@ export const SignForm = (props: Props) => {
 
       <button
         className="signForm__buttonAuth"
-        onClick={() => props.isRegPage ? signUpApi(userData) : null}
+        onClick={() => props.isRegPage ? signUpApi(userData) : signInApi(userData)}
       >
         {props.isRegPage ? "sign up" : "sing in"}
       </button>
