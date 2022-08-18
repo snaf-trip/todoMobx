@@ -1,26 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./signForm.components.scss";
+import { signUpApi } from "../../api/auth.api";
+import { IUserData } from "../../pages/signPages/authTypes.pages";
 
 interface Props {
   isRegPage: boolean,
 }
 
 export const SignForm = (props: Props) => {
+  const [userData, setUserData] = useState<IUserData>({
+    email: "",
+    password: "",
+    repeatPassword: ""
+  } as IUserData);
+
   return (
     <div className="signForm">
       <h1 className="signForm__logo">todos.</h1>
 
-      <input type="text" placeholder="email" className="signForm__input" />
-      <input type="text" placeholder="password" className="signForm__input" />
+      <input
+        type="text"
+        placeholder="email"
+        className="signForm__input"
+        value={userData.email}
+        onChange={e => setUserData({ ...userData, email: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="password"
+        className="signForm__input"
+        value={userData.password}
+        onChange={e => setUserData({ ...userData, password: e.target.value })}
+      />
 
       {props.isRegPage ?
-        <input type="text" placeholder="repeat password" className="signForm__input" />
+        <input
+          type="text"
+          placeholder="repeat password"
+          className="signForm__input"
+          value={userData.repeatPassword}
+          onChange={e => setUserData({ ...userData, repeatPassword: e.target.value })}
+        />
         :
         null
       }
 
-      <button className="signForm__buttonAuth">
+      <button
+        className="signForm__buttonAuth"
+        onClick={() => props.isRegPage ? signUpApi(userData) : null}
+      >
         {props.isRegPage ? "sign up" : "sing in"}
       </button>
 
