@@ -5,10 +5,11 @@ import { MenuItem } from "./menuItem.components";
 export const Menu = () => {
   return (
     <div className="menu">
-      <MenuItem title="menu item 1" />
-      <MenuItem title="menu item 2" />
-      <MenuItem title="menu item 3" />
-      <MenuItem title="menu item 4" />
+      <p className="menu__logo">todos.</p>
+      <MenuItem title="Profile" />
+      <MenuItem title="Tasks" />
+      <MenuItem title="Statistics" />
+      <MenuItem title="Settings" />
     </div>
   )
 }
