@@ -5,6 +5,7 @@ import tasksState from "./store/tasks.store";
 import "./App.scss"
 import { Menu } from "./components/menu/menu.components";
 import { Routers } from "./components/routes/routes.components";
+import { AuthProvider } from "./hooks/authProvider.hooks";
 
 function App(): JSX.Element {
 
@@ -19,10 +20,9 @@ function App(): JSX.Element {
 
   return (
     <>
-      <div className="app">
-        <Menu />
+      <AuthProvider>
         <Routers />
-      </div>
+      </AuthProvider>
       <ModalWindow />
     </>
   )

@@ -1,15 +1,20 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, Auth } from "firebase/auth";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { IUserData } from "../pages/signPages/authTypes.pages";
 
 
 export const signUpApi = (
   userData: IUserData,
+  ga: Auth,
+  navigate: NavigateFunction,
+  fromPage: string,
 ) => {
-  const auth = getAuth();
-  createUserWithEmailAndPassword(auth, userData.email, userData.password)
+  createUserWithEmailAndPassword(ga, userData.email, userData.password)
     .then((userCredential) => {
       const user = userCredential.user;
       console.log(user);
+      localStorage.setItem("token", JSON.stringify(user));
+      navigate(fromPage, { replace: true });
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -20,12 +25,16 @@ export const signUpApi = (
 
 export const signInApi = (
   userData: IUserData,
+  ga: Auth,
+  navigate: NavigateFunction,
+  fromPage: string,
 ) => {
-  const auth = getAuth();
-  signInWithEmailAndPassword(auth, userData.email, userData.password)
+  signInWithEmailAndPassword(ga, userData.email, userData.password)
     .then((userCredential) => {
       const user = userCredential.user;
       console.log(user);
+      localStorage.setItem("token", JSON.stringify(user));
+      navigate(fromPage, { replace: true });
     })
     .catch((error) => {
       const errorCode = error.code;

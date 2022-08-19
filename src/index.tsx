@@ -4,6 +4,7 @@ import "./index.scss"
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import * as firebase from "firebase/app";
+import { AuthProvider } from "./hooks/authProvider.hooks";
 
 // Initialize Firebase
 firebase.initializeApp({

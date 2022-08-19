@@ -1,14 +1,23 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import "./signForm.components.scss";
 import { signInApi, signUpApi } from "../../api/auth.api";
 import { IUserData } from "../../pages/signPages/authTypes.pages";
+import { useAuth } from "../../hooks/useAuth.hooks";
 
 interface Props {
   isRegPage: boolean,
 }
 
 export const SignForm = (props: Props) => {
+  const { ga } = useAuth();
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const fromPage = (location.state as { from: { pathname: string } })?.from.pathname || "/";
+  console.log(fromPage);
+
+
   const [userData, setUserData] = useState<IUserData>({
     email: "",
     password: "",
@@ -48,7 +57,7 @@ export const SignForm = (props: Props) => {
 
       <button
         className="signForm__buttonAuth"
-        onClick={() => props.isRegPage ? signUpApi(userData) : signInApi(userData)}
+        onClick={() => props.isRegPage ? signUpApi(userData, ga, navigate, fromPage) : signInApi(userData, ga, navigate, fromPage)}
       >
         {props.isRegPage ? "sign up" : "sing in"}
       </button>
@@ -58,12 +67,12 @@ export const SignForm = (props: Props) => {
           props.isRegPage ?
             <>
               "Already have an account?"
-              <NavLink to="/signin" className="signForm__otherAuthLink" >sing in</NavLink>
+              <NavLink to="/login" className="signForm__otherAuthLink" >sing in</NavLink>
             </>
             :
             <>
               "Don`t have an account?"
-              <NavLink to="/signup" className="signForm__otherAuthLink">sing up</NavLink>
+              <NavLink to="/registration" className="signForm__otherAuthLink">sing up</NavLink>
             </>
         }
       </p>
