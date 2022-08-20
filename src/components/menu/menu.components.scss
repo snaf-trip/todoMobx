@@ -6,6 +6,9 @@
   height: 100vh;
   padding: 15px 25px 0;
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   .menu__logo {
     color: #8F00FF;
@@ -13,5 +16,16 @@
     font-weight: 700;
     margin: 0 0 43px 0;
     line-height: 71px;
+  }
+
+  .menuItem__link {
+    text-decoration: none;
+  }
+
+  .menu__appVersion {
+    margin-top: auto;
+    font-weight: 400;
+    font-size: 16px;
+    color: #BBBBBB;
   }
 }
