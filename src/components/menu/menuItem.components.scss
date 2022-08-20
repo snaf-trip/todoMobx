@@ -1,13 +1,21 @@
 .menuItem {
+  max-height: 40px;
+  height: 100%;
+  margin-bottom: 20px;
+  padding: 0 0 8px 15px;
   border-bottom: 1px solid rgb(204, 224, 241);
-  font-size: 18px;
-  padding: 5px;
-  color: rgb(71, 71, 71);
+  font-size: 22px;
+  color: #757575;
+  line-height: 32px;
   font-weight: 500;
 
   &:hover {
     cursor: pointer;
-    background-color: rgb(219, 238, 255);
+    color: #bc65ff;
+    // background-color: rgb(219, 238, 255);
   }
+}
 
+.menuItem_active .menuItem {
+  color: #8F00FF;
 }
